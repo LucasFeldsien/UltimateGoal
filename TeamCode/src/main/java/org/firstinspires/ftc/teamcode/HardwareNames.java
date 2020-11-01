@@ -13,8 +13,6 @@ public class HardwareNames {
     public DcMotor drivebr;
     public DcMotor drivebl;
 
-    //cdommegdrfi
-
     public void driveMotors(HardwareMap hwm) {
         drivefr = hwm.get(DcMotor.class, "drivefr");
         drivefl = hwm.get(DcMotor.class, "drivefl");
