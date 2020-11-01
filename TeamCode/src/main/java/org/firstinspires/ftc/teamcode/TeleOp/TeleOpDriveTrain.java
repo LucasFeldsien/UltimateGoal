@@ -8,26 +8,28 @@ class TeleOpDriveTrain extends HardwareNames {
         public void driveMotors(HardwareMap hwm) {
             super.driveMotors(hwm);
         }
-
-    public void driveforward(float y) {
+    //Basic forward/back
+    public void drivestraight(float y) {
     drivefr.setPower(y);
     drivefl.setPower(y);
     drivebr.setPower(y);
     drivebl.setPower(y);
     }
+    //Basic turning
     public void turn(float x) {
             drivefl.setPower(x);
             drivebl.setPower(x);
             drivefr.setPower(-x);
             drivebr.setPower(-x);
     }
+    //Strafe movement
     public void strafe(float x) {
     drivefl.setPower(x);
     drivefr.setPower(-x);
     drivebl.setPower(-x);
     drivebr.setPower(x);
     }
-
+    //Basic Diagonal Movement
     public void diagonalright (float y) {
         drivefl.setPower(y);
         drivebr.setPower(y);
