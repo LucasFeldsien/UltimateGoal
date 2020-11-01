@@ -34,7 +34,7 @@ class TeleOpDriveTrain extends HardwareNames {
         drivefl.setPower(y);
         drivebr.setPower(y);
     }
-
+    //Left Diagonal Movement
     public void diagonalleft (float y) {
             drivefr.setPower(-y);
             drivebl.setPower(-y);
