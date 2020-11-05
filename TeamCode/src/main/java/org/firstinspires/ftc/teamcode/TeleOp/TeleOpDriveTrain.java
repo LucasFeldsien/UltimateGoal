@@ -1,5 +1,5 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
-
+import java.lang.Math;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.HardwareNames;
@@ -30,13 +30,18 @@ class TeleOpDriveTrain extends HardwareNames {
     drivebr.setPower(x);
     }
     //Basic Diagonal Movement
-    public void diagonalright (float y) {
-        drivefl.setPower(y);
-        drivebr.setPower(y);
-    }
-    //Left Diagonal Movement
-    public void diagonalleft (float y) {
+    public void diagonal(float x, float y) {
+        float diagonal = (int) Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+            int power = (int) (x + y);
+        if (( x > 0  && y > 0)  || ( x < 0 && y < 0)) {
+            drivefl.setPower(y);
+            drivebr.setPower(y);
+        }
+        else if (( x < 0 &&  y > 0) || (x > 0 && y < 0)) {
             drivefr.setPower(-y);
             drivebl.setPower(-y);
+        }
+
     }
+
 }
