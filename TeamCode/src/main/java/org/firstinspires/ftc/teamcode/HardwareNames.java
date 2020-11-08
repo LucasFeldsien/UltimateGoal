@@ -23,6 +23,11 @@ public class HardwareNames {
         drivefl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         drivebr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         drivebl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        drivefr.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        drivefl.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        drivebr.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        drivebl.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
 
