@@ -55,7 +55,9 @@ public class HardwareNames {
     }
 
 
-    public DcMotor intakemotor;
+    public DcMotor intakemotor1;
+    public DcMotor intakemotor2;
+    public DcMotor intakemotor3;
     /**MAYBE ANOTHER MOTOR NO CLUE**/
 
     public void intakeMotors(HardwareMap hwm) {
@@ -65,14 +67,14 @@ public class HardwareNames {
     }
 
 
-    /**public idk grabber
-     *
-     * public void intakeMotors(HardwareMap hwm) {
-     *         storgejectmotor = hwm.get(DcMotor.class, "storgejectmotor");
-     *
-     *         drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-     *}
-     */
+    public Servo grabberservo;
+    public Servo grabliftservo;
+
+      public void grabbermotors(HardwareMap hwm) {
+          grabberservo = hwm.get(Servo.class, "grabberservo");
+          grabliftservo = hwm.get(Servo.class, "grabliftservo");
+     }
+
 
 
     /**public sensors
