@@ -8,9 +8,13 @@ class TeleOpDriveTrain extends HardwareNames {
         public void driveMotors(HardwareMap hwm) {
             super.driveMotors(hwm);
         }
-
-
-
+    //Basic forward/back
+    public void drivestraight(float y) {
+    drivefr.setPower(y);
+    drivefl.setPower(y);
+    drivebr.setPower(y);
+    drivebl.setPower(y);
+    }
     //Basic turning
     public void turn(float x) {
             drivefl.setPower(x);
@@ -18,20 +22,25 @@ class TeleOpDriveTrain extends HardwareNames {
             drivefr.setPower(-x);
             drivebr.setPower(-x);
     }
-
-    //omnidirectional movement
-    public void omnidirectional(float x, float y, float x1) {
-        double magnitude = Math.hypot(x, y);
-        double robotAngle = Math.atan2(y, x) - Math.PI / 4;
-        double rightX = x1;
-         double fld = magnitude * Math.cos(robotAngle) + rightX;
-         double frd = magnitude * Math.sin(robotAngle) - rightX;
-         double bld = magnitude * Math.sin(robotAngle) + rightX;
-         double brd = magnitude * Math.cos(robotAngle) - rightX;
-        drivefl.setPower(fld);
-        drivefr.setPower(frd);
-        drivebl.setPower(bld);
-        drivebr.setPower(brd);
+    //Strafe movement
+    public void strafe(float x) {
+    drivefl.setPower(x);
+    drivefr.setPower(-x);
+    drivebl.setPower(-x);
+    drivebr.setPower(x);
+    }
+    //Basic Diagonal Movement
+    public void diagonal(float x, float y) {
+        float diagonal = (int) Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+            int power = (int) (x + y);
+        if (( x > 0  && y > 0)  || ( x < 0 && y < 0)) {
+            drivefl.setPower(y);
+            drivebr.setPower(y);
+        }
+        else if (( x < 0 &&  y > 0) || (x > 0 && y < 0)) {
+            drivefr.setPower(-y);
+            drivebl.setPower(-y);
+        }
 
     }
 
