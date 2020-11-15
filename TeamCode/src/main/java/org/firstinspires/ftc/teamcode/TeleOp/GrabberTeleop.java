@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.TeleOp;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.teamcode.HardwareNames;
 
 
-
-    public class GrabberTeleop extends HardwareNames {
+public class GrabberTeleop extends HardwareNames {
         public void grabberMotors(HardwareMap hwm) {
             super.grabbermotors(hwm);
         }
