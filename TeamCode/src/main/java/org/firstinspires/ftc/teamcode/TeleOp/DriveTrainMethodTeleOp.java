@@ -13,12 +13,7 @@ class DriveTrainMethodTeleOp extends HardwareNames {
     public void init() {
             //ahhh im stuck
     }
-    public void drivestraight(float y) {
-    drivefr.setPower(y);
-    drivefl.setPower(y);
-    drivebr.setPower(y);
-    drivebl.setPower(y);
-    }
+
     //Basic turning
     public void turn(float x) {
             drivefl.setPower(x);
@@ -26,26 +21,8 @@ class DriveTrainMethodTeleOp extends HardwareNames {
             drivefr.setPower(-x);
             drivebr.setPower(-x);
     }
-    //Strafe movement
-    public void strafe(float x) {
-    drivefl.setPower(x);
-    drivefr.setPower(-x);
-    drivebl.setPower(-x);
-    drivebr.setPower(x);
-    }
-    //Basic Diagonal Movement
-    public void diagonal(float x, float y) {
-        float diagonal = (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
-        int power = (int) (x + y);
-        if ((x > 0 && y > 0) || (x < 0 && y < 0)) {
-            drivefl.setPower(y);
-            drivebr.setPower(y);
-        } else if ((x < 0 && y > 0) || (x > 0 && y < 0)) {
-            drivefr.setPower(-y);
-            drivebl.setPower(-y);
-        }
 
-    }
+
     public void omnidirectional(float x, float y, float x1) {
         double magnitude = Math.hypot(x, y);
         double robotAngle = Math.atan2(y, x) - Math.PI / 4;
