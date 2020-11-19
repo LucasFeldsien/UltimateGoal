@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
-class IntakeTeleop extends HardwareNames {
+class IntakeMethodTeleOp extends HardwareNames {
     public void intakeMotors(HardwareMap hwm) {
         super.intakeMotors(hwm);
     }

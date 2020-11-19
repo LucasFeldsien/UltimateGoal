@@ -1,24 +1,25 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
-@TeleOp(name="MecanumLucasTest", group="MecanumTest")
+@TeleOp(name="EXAMPLE", group="TeleOp")
 @Disabled
 class TeleOpExample extends OpMode {
 
-        TeleOpDriveTrain robot = null;
+        DriveTrainMethodTeleOp drivetrain = null;
+
         @Override
         public void init() {
-            robot = new TeleOpDriveTrain();
+            drivetrain = new DriveTrainMethodTeleOp();
+            //drivetrain.driveMotors(HardwareMap);
         }
         @Override
         public void loop() {
-            robot.diagonal(gamepad1.left_stick_x, gamepad1.left_stick_y);
+            drivetrain.diagonal(gamepad1.left_stick_x, gamepad1.left_stick_y);
             /*robot.turndrive(gamepad1);*/
         }
 }

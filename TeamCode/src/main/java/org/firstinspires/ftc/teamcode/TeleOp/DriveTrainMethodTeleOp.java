@@ -4,11 +4,15 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
-class TeleOpDriveTrain extends HardwareNames {
+class DriveTrainMethodTeleOp extends HardwareNames {
         public void driveMotors(HardwareMap hwm) {
             super.driveMotors(hwm);
         }
     //Basic forward/back
+
+    public void init() {
+            //ahhh im stuck
+    }
     public void drivestraight(float y) {
     drivefr.setPower(y);
     drivefl.setPower(y);

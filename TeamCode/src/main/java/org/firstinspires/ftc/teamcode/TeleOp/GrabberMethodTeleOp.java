@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
 
-public class GrabberTeleop extends HardwareNames {
+public class GrabberMethodTeleOp extends HardwareNames {
         public void grabberMotors(HardwareMap hwm) {
             super.grabbermotors(hwm);
         }
