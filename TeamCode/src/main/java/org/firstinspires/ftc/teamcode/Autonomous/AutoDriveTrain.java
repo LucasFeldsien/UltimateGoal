@@ -16,7 +16,7 @@ class AutoDriveTrain extends HardwareNames {
         drivebr.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         drivebl.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
-    
+
     public static int converstion(double baddist) {
         int dist = (int)baddist/2; /** this is for the convertion beween ticks and like cm or something**/
         return dist;
