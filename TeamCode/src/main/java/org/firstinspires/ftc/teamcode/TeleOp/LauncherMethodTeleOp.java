@@ -3,7 +3,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
-class LauncherMethodTeleOp extends HardwareNames {
+public class LauncherMethodTeleOp extends HardwareNames {
     private int whatdoidolucas = 0;
     public void launcherMotor(HardwareMap hwm) {
         super.driveMotors(hwm);

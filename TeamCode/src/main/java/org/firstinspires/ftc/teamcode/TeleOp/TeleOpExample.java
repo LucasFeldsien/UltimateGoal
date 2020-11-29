@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name="EXAMPLE", group="TeleOp")
 @Disabled
-class TeleOpExample extends OpMode {
+public class TeleOpExample extends OpMode {
 
         DriveTrainMethodTeleOp drivetrain = null;
 

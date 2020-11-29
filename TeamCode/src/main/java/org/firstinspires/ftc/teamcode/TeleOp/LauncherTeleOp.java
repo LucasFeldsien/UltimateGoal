@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name="LauncherTeleOp", group="TeleOp")
 @Disabled
-class LauncherTeleOp extends OpMode {
+public class LauncherTeleOp extends OpMode {
 
     LauncherMethodTeleOp launcher = null;
     boolean leftbumper = gamepad1.left_bumper;

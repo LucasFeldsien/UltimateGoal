@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name="IntakeTeleOp", group="TeleOp")
 //@Disabled
-class IntakeTeleop extends OpMode {
+public class IntakeTeleop extends OpMode {
     boolean leftbumper;
     boolean rightbumper;
 
