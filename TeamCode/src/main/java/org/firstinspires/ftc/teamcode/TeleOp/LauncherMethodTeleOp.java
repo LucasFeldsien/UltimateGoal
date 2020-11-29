@@ -10,13 +10,13 @@ class LauncherMethodTeleOp extends HardwareNames {
     //Method for on/off toggle, method for adjusting strength, method for tilt, method for launching rings ;)
     public void LauncherToggle (boolean leftbumper) {
         if (leftbumper) {
-            launchmotor.setPower(1);
+            motorlaunch.setPower(1);
         }
     }
     //need to change second launchmotor for krabby flip
         public void Eject (double launcherpower, boolean rightbumper) {
             if (rightbumper) {
-                launchmotor.setPower(launcherpower);
+                motorlaunch.setPower(launcherpower);
             }
         }
 
@@ -41,13 +41,13 @@ class LauncherMethodTeleOp extends HardwareNames {
 
                 public void ejectangle (boolean lefttrigger, boolean righttrigger) {
                     while (lefttrigger) {
-                            aimservo.getPosition();
-                            aimservo.setPosition(aimservo.getPosition() - 0.1);
+                            servoaim.getPosition();
+                            servoaim.setPosition(servoaim.getPosition() - 0.1);
                     }
 
                     while (righttrigger) {
-                            aimservo.getPosition();
-                            aimservo.setPosition(aimservo.getPosition() + 0.1);
+                            servoaim.getPosition();
+                            servoaim.setPosition(servoaim.getPosition() + 0.1);
                     }
                 }
 

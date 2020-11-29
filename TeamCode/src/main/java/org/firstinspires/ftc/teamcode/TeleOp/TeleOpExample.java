@@ -19,7 +19,7 @@ class TeleOpExample extends OpMode {
         }
         @Override
         public void loop() {
-            drivetrain.diagonal(gamepad1.left_stick_x, gamepad1.left_stick_y);
+            drivetrain.omnidirectional(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.left_stick_x);
             /*robot.turndrive(gamepad1);*/
         }
 }

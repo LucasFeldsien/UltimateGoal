@@ -31,52 +31,60 @@ public class HardwareNames {
     }
 
 
-    public DcMotor launchmotor;
-    public Servo liftservo;
-    public Servo aimservo;
-    public Servo feedservo;
+    public DcMotor motorlaunch;
+    public Servo servolift;
+    public Servo servoaim;
+    public Servo servofeed;
 
     public void launcherMotors(HardwareMap hwm) {
-        launchmotor = hwm.get(DcMotor.class, "launcher");
-        liftservo = hwm.get(Servo.class, "liftservo");
-        aimservo = hwm.get(Servo.class, "aimservo");
-        feedservo = hwm.get(Servo.class, "feedservo");
+        motorlaunch = hwm.get(DcMotor.class, "moterlaunch");
+        servolift = hwm.get(Servo.class, "servolift");
+        servoaim = hwm.get(Servo.class, "servoaim");
+        servofeed = hwm.get(Servo.class, "servofeed");
 
-        /**drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);**/
+        drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
     }
 
 
-    public DcMotor storgejectmotor;
+    public DcMotor motoreject;
 
     public void storageMotors(HardwareMap hwm) {
-        storgejectmotor = hwm.get(DcMotor.class, "storgejectmotor");
+        motoreject = hwm.get(DcMotor.class, "motoreject");
 
         /**drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);**/
     }
 
 
-    public DcMotor intakemotor1;
-    public DcMotor intakemotor2;
-    public DcMotor intakemotor3;
+    public DcMotor motorintake1;
+    public DcMotor motorintake2;
+    public DcMotor motorintake3;
     /**MAYBE ANOTHER MOTOR NO CLUE**/
 
     public void intakeMotors(HardwareMap hwm) {
-        storgejectmotor = hwm.get(DcMotor.class, "storgejectmotor");
+        motorintake1 = hwm.get(DcMotor.class, "motorintake1");
+        motorintake2 = hwm.get(DcMotor.class, "motorintake2");
+        motorintake3 = hwm.get(DcMotor.class, "motorintake3");
 
         /**drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);**/
     }
 
 
-    public Servo grabberservo;
-    public Servo grabliftservo;
+    public Servo servopinch;
+    public Servo servograbrot;
 
-      public void grabbermotors(HardwareMap hwm) {
-          grabberservo = hwm.get(Servo.class, "grabberservo");
-          grabliftservo = hwm.get(Servo.class, "grabliftservo");
+      public void grabberMotors(HardwareMap hwm) {
+          servopinch = hwm.get(Servo.class, "servopinch");
+          servograbrot = hwm.get(Servo.class, "servograbrot");
      }
 
 
 
+    public Servo servocam;
+    //public sensor colorzone; color sensor
+
+    public void sensors(HardwareMap hwm) {
+        servocam = hwm.get(Servo.class, "servocam");
+    }
     /**public sensors
      * public camera
      */

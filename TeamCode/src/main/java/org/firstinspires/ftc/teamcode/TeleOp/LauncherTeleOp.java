@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name="LauncherTeleOp", group="TeleOp")
 @Disabled
-class LauncherTeleop extends OpMode {
+class LauncherTeleOp extends OpMode {
 
     LauncherMethodTeleOp launcher = null;
     double power = 1;
@@ -21,7 +21,7 @@ class LauncherTeleop extends OpMode {
     @Override
     public void loop() {
 
-        }
+    }
 
-        }
+}
 
