@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name="DrivetrainTeleOp", group="TeleOp")
-@Disabled
+//@Disabled
 class DrivetrainTeleOp extends OpMode {
 
     DriveTrainMethodTeleOp drivetrain = null;

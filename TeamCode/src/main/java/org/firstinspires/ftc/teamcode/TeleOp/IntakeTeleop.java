@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name="IntakeTeleOp", group="TeleOp")
-@Disabled
+//@Disabled
 class IntakeTeleop extends OpMode {
     boolean leftbumper;
     boolean rightbumper;

@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name="GrabberTeleOp", group="TeleOp")
-@Disabled
+//@Disabled
 class GrabberTeleop extends OpMode {
 
     GrabberMethodTeleOp grabber = null;
