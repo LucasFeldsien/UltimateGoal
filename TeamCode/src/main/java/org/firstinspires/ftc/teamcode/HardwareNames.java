@@ -14,10 +14,10 @@ public class HardwareNames {
     public DcMotor drivebl;
 
     public void driveMotors(HardwareMap hwm) {
-        drivefr = hwm.get(DcMotor.class, "drivefr");
-        drivefl = hwm.get(DcMotor.class, "drivefl");
-        drivebr = hwm.get(DcMotor.class, "drivebr");
-        drivebl = hwm.get(DcMotor.class, "drivebl");
+        drivefr = hwm.get(DcMotor.class, "driveFR");
+        drivefl = hwm.get(DcMotor.class, "driveFL");
+        drivebr = hwm.get(DcMotor.class, "driveBR");
+        drivebl = hwm.get(DcMotor.class, "driveBL");
 
         drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         drivefl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
