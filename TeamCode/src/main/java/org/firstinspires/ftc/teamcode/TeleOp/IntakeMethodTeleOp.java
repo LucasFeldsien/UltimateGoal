@@ -19,6 +19,11 @@ class IntakeMethodTeleOp extends HardwareNames {
         }
 
         else if (rightbumper) {
+            motorintake1.setPower(-1);
+            motorintake2.setPower(-1);
+            motorintake3.setPower(-1);
+        }
+        else {
             motorintake1.setPower(0);
             motorintake2.setPower(0);
             motorintake3.setPower(0);
