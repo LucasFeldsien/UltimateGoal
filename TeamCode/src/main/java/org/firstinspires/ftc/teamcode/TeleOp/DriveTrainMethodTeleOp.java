@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
 public class DriveTrainMethodTeleOp extends HardwareNames {
-        public void driveMotors(HardwareMap hwm) {
-            super.driveMotors(hwm);
+        public void driveMotor(HardwareMap hwm) {
+            driveMotors(hwm);
         }
     //Basic forward/back
 
