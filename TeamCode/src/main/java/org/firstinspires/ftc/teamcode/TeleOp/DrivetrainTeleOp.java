@@ -16,8 +16,9 @@ public class DrivetrainTeleOp extends OpMode {
 
     @Override
     public void init() {
-        drivetrain = new DriveTrainMethodTeleOp();
         drivetrain.driveMotor(hwm);
+        drivetrain = new DriveTrainMethodTeleOp();
+
     }
 
     @Override
