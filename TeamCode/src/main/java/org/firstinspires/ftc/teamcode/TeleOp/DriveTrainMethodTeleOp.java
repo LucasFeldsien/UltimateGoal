@@ -4,10 +4,9 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
-public class DriveTrainMethodTeleOp {
-    HardwareNames names = null;
+public class DriveTrainMethodTeleOp extends HardwareNames {
         public void driveMotor(HardwareMap hwm) {
-            names.driveMotors(hwm);
+            driveMotors(hwm);
         }
     //Basic forward/back
 
@@ -17,10 +16,10 @@ public class DriveTrainMethodTeleOp {
 
     //Basic turning
     public void turn(float x) {
-            names.drivefl.setPower(x);
-            names.drivebl.setPower(x);
-            names.drivefr.setPower(-x);
-            names.drivebr.setPower(-x);
+            drivefl.setPower(x);
+            drivebl.setPower(x);
+            drivefr.setPower(-x);
+            drivebr.setPower(-x);
     }
 
 
@@ -32,10 +31,10 @@ public class DriveTrainMethodTeleOp {
         double frd = magnitude * Math.sin(robotAngle) - rightX;
         double bld = magnitude * Math.sin(robotAngle) + rightX;
         double brd = magnitude * Math.cos(robotAngle) - rightX;
-        names.drivefl.setPower(fld);
-        names.drivefr.setPower(frd);
-        names.drivebl.setPower(bld);
-        names.drivebr.setPower(brd);
+        drivefl.setPower(fld);
+        drivefr.setPower(frd);
+        drivebl.setPower(bld);
+        drivebr.setPower(brd);
 
     }
 }
