@@ -19,12 +19,16 @@ public class DrivetrainTeleOp extends OpMode {
         drivetrain = new DriveTrainMethodTeleOp();
         drivetrain.driveMotor(hwm);
     }
+    /*@Override
+    public void init() {
+        drivetrain = new DriveTrainMethodTeleOp();
+        drivetrain.driveMotors(hardwareMap);
+    }*/
 
     @Override
     public void loop() {
-        drivetrain.turn(gamepad1.right_stick_x);
-        drivetrain.omnidirectional(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
-        if ((gamepad1.left_stick_x <0 & gamepad1.left_stick_x >0) & (gamepad1.left_stick_y <0 & gamepad1.left_stick_y >0)) {
+
+        if (Math.abs(gamepad1.left_stick_y ) <=0.1 && Math.abs(gamepad1.left_stick_y ) <=0.1) {
             drivetrain.turn(gamepad1.right_stick_x);
         }
         else {
