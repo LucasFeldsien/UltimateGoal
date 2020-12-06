@@ -5,7 +5,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
 public class DriveTrainMethodTeleOp {
-    HardwareNames names = null;
+    HardwareNames names;
+
         public void driveMotor(HardwareMap hwm) {
             names.driveMotors(hwm);
         }
