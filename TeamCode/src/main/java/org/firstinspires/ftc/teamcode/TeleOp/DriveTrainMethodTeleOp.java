@@ -1,7 +1,8 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
+
 import java.lang.Math;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
+import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
 public class DriveTrainMethodTeleOp {
@@ -18,20 +19,17 @@ public class DriveTrainMethodTeleOp {
     double fld, frd, bld, brd;
 
 
-    public void driveMotor(HardwareMap hwm) {
-            names.driveMotors(hwm);
-        }
-    /*public void driveMotors(HardwareMap hwm) {
-        drivefr = hwm.get(DcMotor.class, "driveFR");
-        drivefl = hwm.get(DcMotor.class, "driveFL");
-        drivebr = hwm.get(DcMotor.class, "driveBR");
-        drivebl = hwm.get(DcMotor.class, "driveBL");
+   public void driveMotors(HardwareMap hwm) {
+        names.drivefr = hwm.get(DcMotor.class, "driveFR");
+        names.drivefl = hwm.get(DcMotor.class, "driveFL");
+        names.drivebr = hwm.get(DcMotor.class, "driveBR");
+        names.drivebl = hwm.get(DcMotor.class, "driveBL");
 
-        drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        drivefl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        drivebr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        drivebl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    }*/
+        names.drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        names.drivefl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        names.drivebr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        names.drivebl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    }
     //Basic forward/back
 
     //Basic turning
