@@ -12,12 +12,11 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class DrivetrainTeleOp extends OpMode {
 
     DriveTrainMethodTeleOp drivetrain;
-    HardwareMap hwm;
 
     @Override
     public void init() {
         drivetrain = new DriveTrainMethodTeleOp();
-        drivetrain.driveMotor(hwm);
+        drivetrain.driveMotor(hardwareMap);
     }
     /*@Override
     public void init() {
