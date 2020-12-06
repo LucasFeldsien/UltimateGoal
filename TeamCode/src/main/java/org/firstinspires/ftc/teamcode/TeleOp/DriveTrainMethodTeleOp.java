@@ -6,12 +6,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
 public class DriveTrainMethodTeleOp {
-    HardwareNames names;
 
-    /*public DcMotor drivefr;
+    public DcMotor drivefr;
     public DcMotor drivefl;
     public DcMotor drivebr;
-    public DcMotor drivebl;*/
+    public DcMotor drivebl;
 
     double magnitude = 0;
     double robotAngle = 0;
@@ -20,24 +19,24 @@ public class DriveTrainMethodTeleOp {
 
 
    public void driveMotors(HardwareMap hwm) {
-        names.drivefr = hwm.get(DcMotor.class, "driveFR");
-        names.drivefl = hwm.get(DcMotor.class, "driveFL");
-        names.drivebr = hwm.get(DcMotor.class, "driveBR");
-        names.drivebl = hwm.get(DcMotor.class, "driveBL");
+        drivefr = hwm.get(DcMotor.class, "driveFR");
+        drivefl = hwm.get(DcMotor.class, "driveFL");
+        drivebr = hwm.get(DcMotor.class, "driveBR");
+        drivebl = hwm.get(DcMotor.class, "driveBL");
 
-        names.drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        names.drivefl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        names.drivebr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        names.drivebl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        drivefl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        drivebr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        drivebl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
     //Basic forward/back
 
     //Basic turning
     public void turn(float x) {
-            names.drivefl.setPower(x);
-            names.drivebl.setPower(x);
-            names.drivefr.setPower(-x);
-            names.drivebr.setPower(-x);
+            drivefl.setPower(x);
+            drivebl.setPower(x);
+            drivefr.setPower(-x);
+            drivebr.setPower(-x);
     }
 
 
@@ -49,10 +48,10 @@ public class DriveTrainMethodTeleOp {
         frd = magnitude * Math.sin(robotAngle) - rightX;
         bld = magnitude * Math.sin(robotAngle) + rightX;
         brd = magnitude * Math.cos(robotAngle) - rightX;
-        names.drivefl.setPower(fld);
-        names.drivefr.setPower(frd);
-        names.drivebl.setPower(bld);
-        names.drivebr.setPower(brd);
+        drivefl.setPower(fld);
+        drivefr.setPower(frd);
+        drivebl.setPower(bld);
+        drivebr.setPower(brd);
 
     }
 }
