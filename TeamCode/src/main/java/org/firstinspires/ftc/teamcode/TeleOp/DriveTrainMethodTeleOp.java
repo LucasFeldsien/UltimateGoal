@@ -42,16 +42,17 @@ public class DriveTrainMethodTeleOp {
 
     public void omnidirectional(float x, float y, float x1) {
         magnitude = Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), (1/2));
-        robotAngle = Math.atan2(y, x) - Math.PI / 4;
+        robotAngle = Math.atan2(y, x);
         rightX = x1;
-        fld = magnitude * Math.cos(robotAngle) + rightX;
-        frd = magnitude * Math.sin(robotAngle) - rightX;
-        bld = magnitude * Math.sin(robotAngle) + rightX;
-        brd = magnitude * Math.cos(robotAngle) - rightX;
+        fld = (magnitude * Math.cos(robotAngle - (Math.PI / 4)) - Math.cos(robotAngle) * rightX);
+        bld = (magnitude * Math.sin(robotAngle - (Math.PI / 4)) - Math.sin(robotAngle) * rightX); //back
+        frd = -(magnitude * Math.sin(robotAngle - (Math.PI / 4)) - Math.sin(robotAngle) * rightX);
+        brd = -(magnitude * Math.cos(robotAngle - (Math.PI / 4)) - Math.cos(robotAngle) * rightX); //back
         drivefl.setPower(fld);
         drivefr.setPower(frd);
         drivebl.setPower(bld);
         drivebr.setPower(brd);
+
 
     }
 }
