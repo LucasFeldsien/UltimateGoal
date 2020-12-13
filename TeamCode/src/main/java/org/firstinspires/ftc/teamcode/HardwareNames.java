@@ -1,5 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.graphics.Color;
+import android.hardware.Sensor;
+
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -42,7 +46,7 @@ public class HardwareNames {
         servoaim = hwm.get(Servo.class, "servoaim");
         servofeed = hwm.get(Servo.class, "servofeed");
 
-        drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        motorlaunch.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
     }
 
 
@@ -79,13 +83,25 @@ public class HardwareNames {
 
 
 
+
     public Servo servocam;
-    //public sensor colorzone; color sensor
+    public Servo ledstrip;
+    public ColorSensor colorstore1;
+    public ColorSensor colorstore2;
+    public ColorSensor colorstore3;
+    //colorzone; color sensor
 
     public void sensors(HardwareMap hwm) {
         servocam = hwm.get(Servo.class, "servocam");
+        ledstrip = hwm.get(Servo.class, "ledstrip");
+        colorstore1 = hwm.colorSensor.get("colorstore1");
+        colorstore2 = hwm.colorSensor.get("colorstore2");
+        colorstore3 = hwm.colorSensor.get("colorstore3");
     }
     /**public sensors
-     * public camera
+     * public camera\
+     *
      */
+
+
 }
