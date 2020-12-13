@@ -7,22 +7,27 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name="DrivetrainTeleOp", group="TeleOp")
-@Disabled
-class DrivetrainTeleOp extends OpMode {
+//@Disabled
 
-    DriveTrainMethodTeleOp drivetrain = null;
+public class DrivetrainTeleOp extends OpMode {
+
+    DriveTrainMethodTeleOp drivetrain;
 
     @Override
     public void init() {
         drivetrain = new DriveTrainMethodTeleOp();
-        //drivetrain.driveMotors(HardwareMap);
+        drivetrain.driveMotors(hardwareMap);
     }
+    /*@Override
+    public void init() {
+        drivetrain = new DriveTrainMethodTeleOp();
+        drivetrain.driveMotors(hardwareMap);
+    }*/
 
     @Override
     public void loop() {
-        drivetrain.turn(gamepad1.right_stick_x);
-        drivetrain.omnidirectional(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
-        if ((gamepad1.left_stick_x <0 & gamepad1.left_stick_x >0) & (gamepad1.left_stick_y <0 & gamepad1.left_stick_y >0)) {
+
+        if (Math.abs(gamepad1.left_stick_y ) <=0.1 && Math.abs(gamepad1.left_stick_y ) <=0.1) {
             drivetrain.turn(gamepad1.right_stick_x);
         }
         else {

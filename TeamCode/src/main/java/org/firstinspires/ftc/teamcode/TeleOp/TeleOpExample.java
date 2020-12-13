@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name="EXAMPLE", group="TeleOp")
 @Disabled
-class TeleOpExample extends OpMode {
+public class TeleOpExample extends OpMode {
 
         DriveTrainMethodTeleOp drivetrain = null;
 
@@ -19,7 +19,7 @@ class TeleOpExample extends OpMode {
         }
         @Override
         public void loop() {
-            drivetrain.diagonal(gamepad1.left_stick_x, gamepad1.left_stick_y);
+            drivetrain.omnidirectional(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.left_stick_x);
             /*robot.turndrive(gamepad1);*/
         }
 }

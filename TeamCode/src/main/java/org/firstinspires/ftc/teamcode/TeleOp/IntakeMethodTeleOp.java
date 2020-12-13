@@ -13,15 +13,20 @@ class IntakeMethodTeleOp extends HardwareNames {
 
     public void intake (boolean leftbumper, boolean rightbumper) {
         if (leftbumper) {
-            intakemotor1.setPower(1);
-            intakemotor2.setPower(1);
-            intakemotor2.setPower(1);
+            motorintake1.setPower(1);
+            motorintake2.setPower(1);
+            motorintake3.setPower(1);
         }
 
         else if (rightbumper) {
-            intakemotor1.setPower(0);
-            intakemotor2.setPower(0);
-            intakemotor2.setPower(0);
+            motorintake1.setPower(-1);
+            motorintake2.setPower(-1);
+            motorintake3.setPower(-1);
+        }
+        else {
+            motorintake1.setPower(0);
+            motorintake2.setPower(0);
+            motorintake3.setPower(0);
         }
     }
 

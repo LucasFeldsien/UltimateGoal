@@ -3,20 +3,30 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
-class LauncherMethodTeleOp extends HardwareNames {
+public class LauncherMethodTeleOp extends HardwareNames {
+    private int whatdoidolucas = 0;
     public void launcherMotor(HardwareMap hwm) {
         super.driveMotors(hwm);
     }
     //Method for on/off toggle, method for adjusting strength, method for tilt, method for launching rings ;)
     public void LauncherToggle (boolean leftbumper) {
         if (leftbumper) {
-            launchmotor.setPower(1);
+            motorlaunch.setPower(1);
         }
     }
     //need to change second launchmotor for krabby flip
-        public void Eject (double launcherpower, boolean rightbumper) {
-            if (rightbumper) {
-                launchmotor.setPower(launcherpower);
+        public void Eject (double launcherpower) {
+
+            switch (whatdoidolucas) {
+                case 1:
+                    motorlaunch.setPower(launcherpower);
+                    whatdoidolucas = 0;
+                    break;
+
+                default:
+                    motorlaunch.setPower(0);
+                    whatdoidolucas = 1;
+                    break;
             }
         }
 
@@ -39,15 +49,15 @@ class LauncherMethodTeleOp extends HardwareNames {
                 return power;
                 }
 
-                public void ejectangle (boolean lefttrigger, boolean righttrigger) {
-                    while (lefttrigger) {
-                            aimservo.getPosition();
-                            aimservo.setPosition(aimservo.getPosition() - 0.1);
+                public void ejectangle (float lefttrigger, float righttrigger) {
+                    while (lefttrigger>0.1) {
+                            servoaim.getPosition();
+                            servoaim.setPosition(servoaim.getPosition() - 0.1);
                     }
 
-                    while (righttrigger) {
-                            aimservo.getPosition();
-                            aimservo.setPosition(aimservo.getPosition() + 0.1);
+                    while (righttrigger>0.1) {
+                            servoaim.getPosition();
+                            servoaim.setPosition(servoaim.getPosition() + 0.1);
                     }
                 }
 
