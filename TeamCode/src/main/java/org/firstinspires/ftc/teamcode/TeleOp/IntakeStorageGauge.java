@@ -21,49 +21,51 @@ public class IntakeStorageGauge {
     }
 
     public void rings () {
-        if (isyellow (colorstore1) == true) {
+        if (isyellow (colorstore1) == true && (isyellow (colorstore2) == false && isyellow (colorstore3) == false)) {
             ledstrip.setPosition(0.77);
+
         }
 
-        else  if (isred (colorstore2) == true) {
+        else  if (isyellow (colorstore2) == true && (isyellow (colorstore1) == true && isyellow (colorstore3) == false)) {
             ledstrip.setPosition(0.69);
         }
 
-        else if (isgreen (colorstore3) == true) {
+        else if (isyellow (colorstore3) == true && isyellow(colorstore2) == true) {
             ledstrip.setPosition(0.61);
         }
-        //if colorstore2
-        //if colorstore3
-    }
 
+        else  {
+            ledstrip.setPosition(0.99);
+        }
+    }
+// lets go :)
     private boolean isyellow (ColorSensor sens) {
         if (sens.red() == 0) {
-            return true;
+
+           if (sens.green() == 0) {
+               if (sens.blue() == 0) {
+
+                   return true;
+               }
+               else {
+                   return false;
+               }
+           }
+           else {
+               return false;
+           }
         }
+
         else  {
             return false;
         }
     }
 
-    private boolean isred (ColorSensor sens) {
-        if (sens.red() == 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 
-    private boolean isgreen (ColorSensor sens) {
-        if (sens.green() == 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
     public static void main(String [] args) {
 
     }
+
+
     }
 
