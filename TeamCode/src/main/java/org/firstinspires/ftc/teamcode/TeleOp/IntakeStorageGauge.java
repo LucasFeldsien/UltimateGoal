@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.HardwareNames;
 
 
 public class IntakeStorageGauge {
+
     public Servo ledstrip;
     public ColorSensor colorstore1;
     public ColorSensor colorstore2;
