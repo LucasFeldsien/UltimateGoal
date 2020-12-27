@@ -37,16 +37,16 @@ public class HardwareNames {
 
     public DcMotor motorlaunch;
     public Servo servolift;
-    public Servo servoaim;
+    public DcMotor motorbridge;
     public Servo servofeed;
 
     public void launcherMotors(HardwareMap hwm) {
         motorlaunch = hwm.get(DcMotor.class, "moterlaunch");
         servolift = hwm.get(Servo.class, "servolift");
-        servoaim = hwm.get(Servo.class, "servoaim");
+        motorbridge = hwm.get(DcMotor.class, "motorbridge");
         servofeed = hwm.get(Servo.class, "servofeed");
 
-        motorlaunch.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
     }
 
 
@@ -59,15 +59,10 @@ public class HardwareNames {
     }
 
 
-    public DcMotor motorintake1;
-    public DcMotor motorintake2;
-    public DcMotor motorintake3;
-    /**MAYBE ANOTHER MOTOR NO CLUE**/
+    public DcMotor motorintake;
 
     public void intakeMotors(HardwareMap hwm) {
-        motorintake1 = hwm.get(DcMotor.class, "motorintake1");
-        motorintake2 = hwm.get(DcMotor.class, "motorintake2");
-        motorintake3 = hwm.get(DcMotor.class, "motorintake3");
+        motorintake = hwm.get(DcMotor.class, "motorintake");
 
         /**drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);**/
     }
