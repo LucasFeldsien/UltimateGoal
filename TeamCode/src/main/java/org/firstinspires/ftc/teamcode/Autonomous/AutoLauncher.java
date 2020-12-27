@@ -11,7 +11,7 @@ class AutoLauncher extends HardwareNames {
         super.launcherMotors(hwm);
     }
     public void shoot(double vis) {
-        servoaim.setPosition(vis);
+        servolift.setPosition(vis);
         motorlaunch.setPower(1.0);
         servofeed.setPosition(1.0);//continous
         servolift.setPosition(1.0);
