@@ -1,8 +1,10 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -11,15 +13,15 @@ import org.firstinspires.ftc.teamcode.HardwareNames;
 
 @TeleOp(name="test the color", group="TeleOp")
 //@Disabled
-class TestColor extends OpMode {
+public class TestColor extends OpMode {
 
     IntakeStorageGauge gauge = null;
 
     @Override
     public void init() {
         gauge = new IntakeStorageGauge();
-        gauge.ledstrip = hardwareMap.get(Servo.class, "ledstrip");
-        gauge.colorstore1 = hardwareMap.colorSensor.get("colorstore1");
+        //gauge.ledstrip = hardwareMap.get(RevBlinkinLedDriver.class, "blinkin");
+        gauge.colorstore1 = hardwareMap.get(ColorSensor.class, "colorstore1");
         //drivetrain.driveMotors(HardwareMap);
     }
 

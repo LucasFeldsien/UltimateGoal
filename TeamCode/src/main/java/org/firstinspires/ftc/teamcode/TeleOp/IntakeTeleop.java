@@ -25,11 +25,13 @@ public class IntakeTeleop extends OpMode {
     @Override
     public void loop() {
         //dont intake >:()
-        System.out.println(gauge.colorstore1);
-       if ( leftbumper || rightbumper) {
-           intake.intake(leftbumper, rightbumper);
+        if (gauge.isyellow (gauge.colorstore2) == true && gauge.isyellow (gauge.colorstore3) == true) {
+            intake.intake(true, leftbumper, rightbumper); }
+        else {
+            intake.intake(false, leftbumper, rightbumper);
         }
 
     }
 }
+
 

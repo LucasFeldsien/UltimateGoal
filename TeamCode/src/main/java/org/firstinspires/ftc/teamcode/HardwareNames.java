@@ -1,5 +1,5 @@
 package org.firstinspires.ftc.teamcode;
-
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import android.graphics.Color;
 import android.hardware.Sensor;
 
@@ -80,7 +80,7 @@ public class HardwareNames {
 
 
     public Servo servocam;
-    public Servo ledstrip;
+    public RevBlinkinLedDriver ledstrip;
     public ColorSensor colorstore1;
     public ColorSensor colorstore2;
     public ColorSensor colorstore3;
@@ -88,7 +88,7 @@ public class HardwareNames {
 
     public void sensors(HardwareMap hwm) {
         servocam = hwm.get(Servo.class, "servocam");
-        ledstrip = hwm.get(Servo.class, "ledstrip");
+        ledstrip = hwm.get(RevBlinkinLedDriver.class, "blinkin");
         colorstore1 = hwm.colorSensor.get("colorstore1");
         colorstore2 = hwm.colorSensor.get("colorstore2");
         colorstore3 = hwm.colorSensor.get("colorstore3");

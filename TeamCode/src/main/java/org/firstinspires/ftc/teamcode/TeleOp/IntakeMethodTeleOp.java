@@ -19,14 +19,14 @@ class IntakeMethodTeleOp  {
         /**drivefr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);**/
     }
 
-    public void intake (boolean leftbumper, boolean rightbumper) {
-        if (leftbumper) {
+    public void intake (boolean full, boolean leftbumper, boolean rightbumper) {
+        if (leftbumper == true && full == false) {
             motorintake1.setPower(1);
             motorintake2.setPower(1);
             motorintake3.setPower(1);
         }
 
-        else if (rightbumper) {
+        else if (rightbumper == true) {
             motorintake1.setPower(-1);
             motorintake2.setPower(-1);
             motorintake3.setPower(-1);
