@@ -15,22 +15,27 @@ import org.firstinspires.ftc.teamcode.HardwareNames;
 //@Disabled
 public class TestColor extends OpMode {
 
-    IntakeStorageGauge gauge = null;
+    //ntakeStorageGauge gauge = null;
+    public ColorSensor colorstore1;
 
     @Override
     public void init() {
-        gauge = new IntakeStorageGauge();
+        //gauge = new IntakeStorageGauge();
         //gauge.ledstrip = hardwareMap.get(RevBlinkinLedDriver.class, "blinkin");
-        gauge.colorstore1 = hardwareMap.get(ColorSensor.class, "colorstore1");
+        colorstore1 = hardwareMap.get(ColorSensor.class, "colorstore1");
         //drivetrain.driveMotors(HardwareMap);
     }
 
     @Override
     public void loop() {
         //dont intake >:()
-        System.out.println("blue: " + gauge.colorstore1.blue());
-        System.out.println("red: " + gauge.colorstore1.red());
-        System.out.println("blue: " + gauge.colorstore1.green());
+        /*System.out.println("blue: " + colorstore1.blue());
+        System.out.println("red: " + colorstore1.red());
+        System.out.println("blue: " + colorstore1.green());*/
 
+        telemetry.addData("B", colorstore1.blue());
+        telemetry.addData("Red  ", colorstore1.red());
+        telemetry.addData("Green", colorstore1.green());
+        telemetry.update();
     }
 }
