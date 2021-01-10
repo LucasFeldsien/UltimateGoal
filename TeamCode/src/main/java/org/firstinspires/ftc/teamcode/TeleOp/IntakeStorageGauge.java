@@ -63,9 +63,7 @@ public class IntakeStorageGauge {
     }
 
 
-    public static void main(String [] args) {
 
-    }
 
 
     }
