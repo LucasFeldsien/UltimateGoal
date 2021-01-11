@@ -10,28 +10,29 @@ import org.firstinspires.ftc.teamcode.HardwareNames;
 
 public class IntakeStorageGauge {
 
-    public  RevBlinkinLedDriver ledstrip;
+   public  RevBlinkinLedDriver ledstrip;
     public ColorSensor colorstore1;
     public ColorSensor colorstore2;
     public ColorSensor colorstore3;
 
     public void storageledsensors(HardwareMap hwm) {
         ledstrip = hwm.get( RevBlinkinLedDriver.class, "blinkin");
-        colorstore1 = hwm.colorSensor.get("colorstore1");
-        colorstore2 = hwm.colorSensor.get("colorstore2");
-        colorstore3 = hwm.colorSensor.get("colorstore3");
+        // colorstore1 = hwm.colorSensor.get("colorstore1");
+    //    colorstore3 = hwm.get(ColorSensor.class, "colorstore3");
+    //    colorstore2 = hwm.get(ColorSensor.class, "colorstore2");
+       colorstore1 = hwm.get(ColorSensor.class, "colorstore1");
     }
 
-    public void rings () {
-        if (isyellow(colorstore1) == true && (isyellow (colorstore2) == false && isyellow (colorstore3) == false)) {
+   /* public void rings () {
+        if (isyellow1() == true && (isyellow2 () == false && isyellow3 () == false)) {
             ledstrip.setPattern(RevBlinkinLedDriver.BlinkinPattern.GREEN);
         }
 
-        else  if (isyellow(colorstore2) == true && (isyellow (colorstore1) == true && isyellow (colorstore3) == false)) {
+        else  if (isyellow2() == true && (isyellow1 () == true && isyellow3 () == false)) {
             ledstrip.setPattern(RevBlinkinLedDriver.BlinkinPattern.YELLOW);
         }
 
-        else if (isyellow(colorstore3) == true && isyellow(colorstore2) == true) {
+        else if (isyellow3() == true && isyellow2() == true) {
             ledstrip.setPattern(RevBlinkinLedDriver.BlinkinPattern.RED);
         }
 
@@ -39,12 +40,13 @@ public class IntakeStorageGauge {
             ledstrip.setPattern(RevBlinkinLedDriver.BlinkinPattern.RAINBOW_RAINBOW_PALETTE);
         }
     }
+*/
 // lets go :)
-    public boolean isyellow (ColorSensor sens) {
-        if (sens.red() == 0) {
+    public boolean isyellow1 () {
+        if (colorstore1.red() == 10) {
 
-           if (sens.green() == 0) {
-               if (sens.blue() == 0) {
+           if (colorstore1.green() == 10) {
+               if (colorstore1.blue() == 10) {
 
                    return true;
                }
@@ -62,9 +64,53 @@ public class IntakeStorageGauge {
         }
     }
 
+ /*  public boolean isyellow2 () {
+        if (colorstore1.red() == 10) {
 
+            if (colorstore1.green() == 10) {
+                if (colorstore1.blue() == 10) {
 
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
 
-
+        else  {
+            return false;
+        }
     }
+
+    public boolean isyellow3 () {
+        if (colorstore1.red() == 10) {
+
+            if (colorstore1.green() == 10) {
+                if (colorstore1.blue() == 10) {
+
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+
+        else  {
+            return false;
+        }
+    }
+
+*/
+
+
+
+}
 
