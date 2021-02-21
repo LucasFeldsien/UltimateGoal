@@ -61,4 +61,7 @@ class AutoDriveTrain extends HardwareNames {
         drivefr.setPower(-ticks);
         drivebl.setPower(-ticks);
     }
+
+    public void init(HardwareMap hardwareMap) {
+    }
 }
