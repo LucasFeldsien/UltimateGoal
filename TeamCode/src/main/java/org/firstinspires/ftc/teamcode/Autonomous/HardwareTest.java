@@ -55,7 +55,7 @@ import org.firstinspires.ftc.teamcode.HardwareNames;
 public class HardwareTest extends HardwareNames
 {
     public HardwareTest(HardwareMap hwm) {
-        super.driveMotors(hwm);
+        super.driveMotors(hwm, true);
     }
     public void autoDriveInit() {
         drivefr.setMode(DcMotor.RunMode.RUN_TO_POSITION);

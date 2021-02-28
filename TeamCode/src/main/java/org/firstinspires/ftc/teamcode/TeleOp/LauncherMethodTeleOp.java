@@ -27,11 +27,11 @@ public class LauncherMethodTeleOp  {
         }
     }
     //need to change second launchmotor for krabby flip
-        public void Eject (double launcherpower) {
+        public void Eject () {
 
             switch (whatdoidolucas) {
                 case 1:
-                    motorlaunch.setPower(launcherpower);
+                    motorlaunch.setPower(1);
                     whatdoidolucas = 0;
                     break;
 
@@ -42,26 +42,7 @@ public class LauncherMethodTeleOp  {
             }
         }
 
-         public double launcherpower (double power, boolean buttonA, boolean buttonB, boolean buttonX, boolean buttonY) {
-                if (buttonA) {
-                    power = .25;
-                }
-
-                else if (buttonX) {
-                    power = .50;
-                }
-
-                else if (buttonY) {
-                    power = .75;
-                }
-
-                else if (buttonB) {
-                    power = 1;
-                }
-                return power;
-                }
-
-                public void ejectangle (float lefttrigger, float righttrigger) {
+                public void ejectAngle (float lefttrigger, float righttrigger) {
                     while (lefttrigger>0.1) {
                             servoaim.getPosition();
                             servoaim.setPosition(servoaim.getPosition() - 0.1);

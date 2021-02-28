@@ -36,54 +36,54 @@ class AutoDriveTrain {
     //basic movement
     public void autoDriveStraight(double dist, double power) {
        int ticks = converstion(dist);
-        names.drivefr.setTargetPosition(ticks);
-        names.drivefl.setTargetPosition(ticks);
-        names.drivebr.setTargetPosition(ticks);
-        names.drivebl.setTargetPosition(ticks);
+        names.drivefr.setTargetPosition(ticks+names.drivefr.getCurrentPosition());
+        names.drivefl.setTargetPosition(ticks+names.drivefl.getCurrentPosition());
+        names.drivebr.setTargetPosition(ticks+names.drivebr.getCurrentPosition());
+        names.drivebl.setTargetPosition(ticks+names.drivebl.getCurrentPosition());
 
         runToPos();
     }
     //turning
     public void autoPivotTurn(int angle) {
         int ticks = degreeconverstion(angle);
-        names.drivefr.setTargetPosition(ticks);
-        names.drivefl.setTargetPosition(ticks);
-        names.drivebr.setTargetPosition(-ticks);
-        names.drivebl.setTargetPosition(-ticks);
+        names.drivefr.setTargetPosition(ticks+names.drivefr.getCurrentPosition());
+        names.drivefl.setTargetPosition(ticks+names.drivefl.getCurrentPosition());
+        names.drivebr.setTargetPosition(-ticks+names.drivebr.getCurrentPosition());
+        names.drivebl.setTargetPosition(-ticks+names.drivebl.getCurrentPosition());
 
         runToPos();
     }
     //Strafe movement
     public void autoStrafe(double dist) {
         int ticks = converstion(dist);
-        names.drivefr.setTargetPosition(ticks);
-        names.drivefl.setTargetPosition(-ticks);
-        names.drivebr.setTargetPosition(-ticks);
-        names.drivebl.setTargetPosition(ticks);
+        names.drivefr.setTargetPosition(ticks+names.drivefr.getCurrentPosition());
+        names.drivefl.setTargetPosition(-ticks+names.drivefl.getCurrentPosition());
+        names.drivebr.setTargetPosition(-ticks+names.drivebr.getCurrentPosition());
+        names.drivebl.setTargetPosition(ticks+names.drivebl.getCurrentPosition());
 
         runToPos();
     }
     //Basic Diagonal Movement
     public void autoDiagonalPosSlope (double dist) {
         int ticks = converstion(dist);
-        names.drivefl.setTargetPosition(ticks);
-        names.drivebr.setTargetPosition(ticks);
+        names.drivefl.setTargetPosition(ticks+names.drivefl.getCurrentPosition());
+        names.drivebr.setTargetPosition(ticks+names.drivebr.getCurrentPosition());
 
         runToPos();
     }
     //Left Diagonal Movement
     public void autoDiagonalNegSlope (double dist) {
         int ticks = converstion(dist);
-        names.drivefr.setTargetPosition(-ticks);
-        names.drivebl.setTargetPosition(-ticks);
+        names.drivefr.setTargetPosition(-ticks+names.drivefr.getCurrentPosition());
+        names.drivebl.setTargetPosition(-ticks+names.drivebl.getCurrentPosition());
 
         runToPos();
     }
 
     public void backTurn(int angle) {
         int ticks = degreeconverstion(angle);
-        names.drivebr.setTargetPosition(ticks);
-        names.drivebl.setTargetPosition(-ticks);
+        names.drivebr.setTargetPosition(ticks+names.drivebr.getCurrentPosition());
+        names.drivebl.setTargetPosition(-ticks+names.drivebl.getCurrentPosition());
 
         runToPos();
     }
@@ -95,18 +95,5 @@ class AutoDriveTrain {
         names.drivebr.setPower(0);
     }
 
-    public void init(HardwareMap hardwareMap) {
-    }
-}
 
-/*
-    @Override
-    public void runOpMode() {
-        double LeftTarget = BallDrive.motor1.getCurrentPosition() + moveCount;
-        double RightTarget = BallDrive.motor2.getCurrentPosition() + moveCount;
-// Set Target and Turn On RUN_TO_POSITION
-        BallDrive.motor1.setTargetPosition(LeftTarget);
-        BallDrive.motor2.setTargetPosition(RightTarget);
-        BallDrive.motor1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        BallDrive.motor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-    }*/
+}

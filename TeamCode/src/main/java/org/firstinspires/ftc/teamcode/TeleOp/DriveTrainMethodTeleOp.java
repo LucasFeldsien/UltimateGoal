@@ -32,15 +32,15 @@ public class DriveTrainMethodTeleOp {
     //Basic forward/back
 
     //Basic turning
-    public void turn(float x) {
-            drivefl.setPower(x);
-            drivebl.setPower(x);
-            drivefr.setPower(-x);
-            drivebr.setPower(-x);
+    public void turn(double power, float x) {
+            drivefl.setPower(x * power);
+            drivebl.setPower(x * power);
+            drivefr.setPower(-x * power);
+            drivebr.setPower(-x * power);
     }
 
 
-    public void omnidirectional(float x, float y, float x1) {
+    public void omnidirectional(double power, float x, float y, float x1) {
         magnitude = Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), (1/2));
         robotAngle = Math.atan2(y, x);
         rightX = x1;
@@ -48,11 +48,32 @@ public class DriveTrainMethodTeleOp {
         bld = (magnitude * Math.sin(robotAngle - (Math.PI / 4)) - Math.sin(robotAngle) * rightX); //back
         frd = -(magnitude * Math.sin(robotAngle - (Math.PI / 4)) - Math.sin(robotAngle) * rightX);
         brd = -(magnitude * Math.cos(robotAngle - (Math.PI / 4)) - Math.cos(robotAngle) * rightX); //back
-        drivefl.setPower(fld);
-        drivefr.setPower(frd);
-        drivebl.setPower(bld);
-        drivebr.setPower(brd);
+        drivefl.setPower(fld * power);
+        drivefr.setPower(frd * power);
+        drivebl.setPower(bld * power);
+        drivebr.setPower(brd * power);
 
 
     }
+
+
+    public double motorPower (double power, boolean buttonA, boolean buttonB, boolean buttonX, boolean buttonY) {
+        if (buttonA) {
+            power = .25;
+        }
+
+        else if (buttonX) {
+            power = .50;
+        }
+
+        else if (buttonY) {
+            power = .75;
+        }
+
+        else if (buttonB) {
+            power = 1;
+        }
+        return power;
+    }
+
 }
