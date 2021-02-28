@@ -19,21 +19,13 @@ public class GrabberTeleop extends OpMode {
     double power = 1;
     @Override
     public void init() {
-        grabber = new GrabberMethodTeleOp();
-        grabber.grabberMotors(hardwareMap);
+        grabber = new GrabberMethodTeleOp(hardwareMap);
     }
 
     @Override
     public void loop() {
         grabber.grabbergrab( dLeft,  dRight);
         grabber.grabberlift( dUp,  dDown);
-        if (dUp || dDown) {
-            grabber.grabberlift( dUp,  dDown);
-        }
-        else if (dLeft || dRight) {
-            grabber.grabbergrab( dLeft,  dRight);
-        }
-
     }
 }
 

@@ -18,7 +18,7 @@ public class DriveTrainMethodTeleOp {
     double fld, frd, bld, brd;
 
 
-   public void driveMotors(HardwareMap hwm) {
+   public DriveTrainMethodTeleOp(HardwareMap hwm) {
         drivefr = hwm.get(DcMotor.class, "driveFR");
         drivefl = hwm.get(DcMotor.class, "driveFL");
         drivebr = hwm.get(DcMotor.class, "driveBR");
