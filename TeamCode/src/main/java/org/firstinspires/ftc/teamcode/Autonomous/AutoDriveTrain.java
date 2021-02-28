@@ -94,6 +94,9 @@ class AutoDriveTrain {
         names.drivebl.setPower(0);
         names.drivebr.setPower(0);
     }
+
+    public void init(HardwareMap hardwareMap) {
+    }
 }
 
 /*
