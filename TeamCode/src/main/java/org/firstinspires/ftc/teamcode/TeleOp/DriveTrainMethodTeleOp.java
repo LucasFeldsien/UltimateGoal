@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
 
 import java.lang.Math;
+
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.teamcode.HardwareNames;
@@ -28,15 +30,21 @@ public class DriveTrainMethodTeleOp {
         drivefl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         drivebr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         drivebl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    }
+
+        drivefr.setDirection(DcMotorSimple.Direction.FORWARD);
+        drivebr.setDirection(DcMotorSimple.Direction.FORWARD);
+        drivefl.setDirection(DcMotorSimple.Direction.FORWARD);
+        drivebl.setDirection(DcMotorSimple.Direction.REVERSE);
+
+   }
     //Basic forward/back
 
     //Basic turning
     public void turn(double power, float x) {
-            drivefl.setPower(x * power);
-            drivebl.setPower(x * power);
-            drivefr.setPower(-x * power);
-            drivebr.setPower(-x * power);
+            drivefl.setPower(-x * power);
+            drivebl.setPower(-x * power);
+            drivefr.setPower(x * power);
+            drivebr.setPower(x * power);
     }
 
 
@@ -46,8 +54,8 @@ public class DriveTrainMethodTeleOp {
         rightX = x1;
         fld = (magnitude * Math.cos(robotAngle - (Math.PI / 4)) - Math.cos(robotAngle) * rightX);
         bld = (magnitude * Math.sin(robotAngle - (Math.PI / 4)) - Math.sin(robotAngle) * rightX); //back
-        frd = -(magnitude * Math.sin(robotAngle - (Math.PI / 4)) - Math.sin(robotAngle) * rightX);
-        brd = -(magnitude * Math.cos(robotAngle - (Math.PI / 4)) - Math.cos(robotAngle) * rightX); //back
+        frd = (magnitude * Math.sin(robotAngle - (Math.PI / 4)) - Math.sin(robotAngle) * rightX);
+        brd = (magnitude * Math.cos(robotAngle - (Math.PI / 4)) - Math.cos(robotAngle) * rightX); //back
         drivefl.setPower(fld * power);
         drivefr.setPower(frd * power);
         drivebl.setPower(bld * power);
