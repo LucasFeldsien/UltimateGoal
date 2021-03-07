@@ -12,20 +12,18 @@ public class GrabberTeleop extends OpMode {
 
 
     GrabberMethodTeleOp grabber;
-    boolean dLeft = gamepad1.dpad_left;
-    boolean dRight = gamepad1.dpad_right;
-    boolean dUp = gamepad1.dpad_up;
-    boolean dDown = gamepad1.dpad_down;
-    double power = 1;
-    @Override
-    public void init() {
-        grabber = new GrabberMethodTeleOp(hardwareMap);
-    }
 
     @Override
+    public void init() {grabber = new GrabberMethodTeleOp(hardwareMap); }
+    /*@Override
+    public void init() {
+        drivetrain = new DriveTrainMethodTeleOp();
+        drivetrain.driveMotors(hardwareMap);
+    }*/
+    @Override
     public void loop() {
-        grabber.grabbergrab( dLeft,  dRight);
-        grabber.grabberlift( dUp,  dDown);
+        grabber.grabbergrab( gamepad1.dpad_left,  gamepad1.dpad_right);
+        grabber.grabberlift( gamepad1.dpad_up,  gamepad1.dpad_down);
     }
 }
 
