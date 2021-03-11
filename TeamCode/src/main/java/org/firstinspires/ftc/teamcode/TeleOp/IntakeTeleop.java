@@ -12,7 +12,7 @@ public class IntakeTeleop extends OpMode {
 
 
     IntakeMethodTeleOp intake;
-    IntakeStorageGauge gauge = null;
+    //IntakeStorageGauge gauge = null;
 
     @Override
     public void init() {

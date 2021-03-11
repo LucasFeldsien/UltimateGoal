@@ -33,8 +33,4 @@ class IntakeMethodTeleOp  {
         }
     }
 
-
-    public static void main (String [] args) {
-
-}
 }
