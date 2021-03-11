@@ -34,6 +34,9 @@ public class GrabberMethodTeleOp {
                 servograbrot.setPosition(servograbrot.getPosition() - 0.1);
             }
 
+            else {
+                servograbrot.setPosition(servograbrot.getPosition());
+            }
 
         }
     }
