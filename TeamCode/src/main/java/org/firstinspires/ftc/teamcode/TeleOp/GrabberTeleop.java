@@ -14,7 +14,7 @@ public class GrabberTeleop extends OpMode {
     GrabberMethodTeleOp grabber;
 
     @Override
-    public void init() {grabber = new GrabberMethodTeleOp(hardwareMap); }
+    public void init() {grabber = new GrabberMethodTeleOp(hardwareMap, telemetry); }
     /*@Override
     public void init() {
         drivetrain = new DriveTrainMethodTeleOp();
