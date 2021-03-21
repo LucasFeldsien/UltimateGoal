@@ -32,9 +32,7 @@ public class Test extends LinearOpMode {
 
 
         // Send telemetry message to indicate successful Encoder reset
-        telemetry.addData("Path0",  "Starting at %7d :%7d"
-
-        );
+        telemetry.addData("Path0",  "Starting at %7d :%7d");
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)

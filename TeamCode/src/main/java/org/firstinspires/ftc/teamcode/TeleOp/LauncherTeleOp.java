@@ -11,24 +11,19 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class LauncherTeleOp extends OpMode {
 
     LauncherMethodTeleOp launcher;
-    boolean leftbumper = gamepad1.left_bumper;
-    boolean rightbumper = gamepad1.right_bumper;
-    float lefttrigger = gamepad1.left_trigger;
-    float righttrigger = gamepad1.right_trigger;
 
     @Override
     public void init() {
-        launcher = new LauncherMethodTeleOp();
-        launcher.launcherMotors(hardwareMap);
+        launcher = new LauncherMethodTeleOp(hardwareMap);
     }
     @Override
     public void loop() {
-
-        launcher.ejectAngle( lefttrigger,  righttrigger);
-
-         if (rightbumper) {
-            launcher.Eject();
+        launcher.ejectAngle(gamepad2.left_trigger, gamepad2.right_trigger);
+        launcher.feed(gamepad2.b);
+        if (gamepad2.right_bumper) {
+            launcher.Eject(gamepad2.x);
         }
+
     }
 }
 

@@ -20,16 +20,14 @@ public class TestColor extends OpMode {
 
     @Override
     public void init() {
-        gauge = new IntakeStorageGauge();
-        gauge.storageledsensors(hardwareMap);
-        gauge.ledstrip = hardwareMap.get(RevBlinkinLedDriver.class, "blinkin");
+        gauge = new IntakeStorageGauge(hardwareMap);
 
         //drivetrain.driveMotors(HardwareMap);
     }
 
     @Override
     public void loop() {
-        if (gauge.colorstore1.red() != 20) {
+       /* if (gauge.colorstore1.red() != 20) {
             telemetry.addData("B", gauge.colorstore1.blue());
         }
         //dont intake >:()
@@ -50,6 +48,6 @@ public class TestColor extends OpMode {
             gauge.ledstrip.setPattern(RevBlinkinLedDriver.BlinkinPattern.RED);
 
 
-        }
+        }*/
     }
 }

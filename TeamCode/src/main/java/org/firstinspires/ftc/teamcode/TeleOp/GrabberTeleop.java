@@ -14,7 +14,7 @@ public class GrabberTeleop extends OpMode {
     GrabberMethodTeleOp grabber;
 
     @Override
-    public void init() {grabber = new GrabberMethodTeleOp(hardwareMap, telemetry); }
+    public void init() {grabber = new GrabberMethodTeleOp(hardwareMap); }
     /*@Override
     public void init() {
         drivetrain = new DriveTrainMethodTeleOp();
@@ -23,7 +23,7 @@ public class GrabberTeleop extends OpMode {
     @Override
     public void loop() {
         grabber.grabbergrab( gamepad1.dpad_left,  gamepad1.dpad_right);
-        grabber.grabberlift( gamepad1.dpad_up,  gamepad1.dpad_down);
+        grabber.grabberlift( gamepad1.dpad_up,  gamepad1.dpad_down, gamepad1.left_bumper);
     }
 }
 

@@ -12,14 +12,14 @@ public class IntakeTeleop extends OpMode {
 
 
     IntakeMethodTeleOp intake;
-    //IntakeStorageGauge gauge = null;
+    IntakeStorageGauge led;
 
     @Override
     public void init() {
         intake = new IntakeMethodTeleOp(hardwareMap);
+        led = new IntakeStorageGauge(hardwareMap);
     }
-     //   intake = new IntakeMethodTeleOp();
-     //   gauge = new IntakeStorageGauge();
+    //
         //drivetrain.driveMotors(HardwareMap);
 
 
@@ -28,7 +28,14 @@ public class IntakeTeleop extends OpMode {
         //dont intake >:()
       //  gauge.rings();
         //if (gauge.isyellow2 () == true && gauge.isyellow3 () == true) {
-            intake.intake(/*true,*/ gamepad1.left_bumper, gamepad1.right_bumper); }
+            intake.intake(/*true,*/ gamepad2.left_bumper, gamepad2.right_bumper);
+            if(gamepad1.y == true) {
+                led.ledstrip.setPosition(.95);
+            }
+            else {
+                led.ledstrip.setPosition(.37);
+        }
+    }
        // else {
            // intake.intake(false, leftbumper, rightbumper);
         }

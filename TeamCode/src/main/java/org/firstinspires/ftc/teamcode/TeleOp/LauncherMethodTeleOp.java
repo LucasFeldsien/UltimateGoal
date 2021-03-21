@@ -9,16 +9,21 @@ public class LauncherMethodTeleOp  {
     private int whatdoidolucas = 0;
 
     public DcMotor motorlaunch;
-    public Servo servolift;
-    public Servo servoaim;
-    public Servo servofeed;
-    public void launcherMotors(HardwareMap hwm) {
-        motorlaunch = hwm.get(DcMotor.class, "moterlaunch");
-        servolift = hwm.get(Servo.class, "servolift");
-        servoaim = hwm.get(Servo.class, "servoaim");
-        servofeed = hwm.get(Servo.class, "servofeed");
+    public DcMotor motorlift;
+    public DcMotor motorfeed;
+    int newtarget = 0;
+
+    public LauncherMethodTeleOp(HardwareMap hwm) {
+        motorlaunch = hwm.get(DcMotor.class, "motorlaunch");
+        motorlift = hwm.get(DcMotor.class, "motorlift");
+        motorfeed = hwm.get(DcMotor.class, "motorfeed");
 
         motorlaunch.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        motorlift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motorfeed.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        motorfeed.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorfeed.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
     //Method for on/off toggle, method for adjusting strength, method for tilt, method for launching rings ;)
     public void LauncherToggle (boolean leftbumper) {
@@ -27,31 +32,31 @@ public class LauncherMethodTeleOp  {
         }
     }
     //need to change second launchmotor for krabby flip
-        public void Eject () {
-
+    public void Eject (boolean unknownbutton) {
+        if(unknownbutton == false) {
             switch (whatdoidolucas) {
-                case 1:
-                    motorlaunch.setPower(1);
-                    whatdoidolucas = 0;
-                    break;
-
                 default:
                     motorlaunch.setPower(0);
                     whatdoidolucas = 1;
                     break;
+
+                case 1:
+                    motorlaunch.setPower(1);
+                    whatdoidolucas = 0;
+                    break;
             }
         }
+    }
 
-                public void ejectAngle (float lefttrigger, float righttrigger) {
-                    while (lefttrigger>0.1) {
-                            servoaim.getPosition();
-                            servoaim.setPosition(servoaim.getPosition() - 0.1);
-                    }
+    public void ejectAngle (float lefttrigger, float righttrigger) {
+        motorlift.setPower(lefttrigger*.5 - righttrigger*.5);
+    }
 
-                    while (righttrigger>0.1) {
-                            servoaim.getPosition();
-                            servoaim.setPosition(servoaim.getPosition() + 0.1);
-                    }
-                }
-
-            }
+    public void feed(boolean gaema) {
+        if(gaema == true) {
+            newtarget = motorfeed.getCurrentPosition()+100;
+            motorfeed.setTargetPosition(newtarget);
+            motorfeed.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        }
+    }
+}

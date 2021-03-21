@@ -9,43 +9,31 @@ import org.firstinspires.ftc.teamcode.HardwareNames;
 public class GrabberMethodTeleOp {
     public Servo servopinch;
     public Servo servograbrot;
-    private Telemetry telemetry = null;
-        public GrabberMethodTeleOp(HardwareMap hwm, Telemetry telemetry) {
+
+        public GrabberMethodTeleOp(HardwareMap hwm) {
             servopinch = hwm.get(Servo.class, "servopinch");
             servograbrot = hwm.get(Servo.class, "servograbrot");
-            this.telemetry = telemetry;
-
         }
         // Using dpad for grabber directional movement
         public void grabbergrab(boolean dLeft, boolean dRight) {
             if (dLeft) {
-                servopinch.setPosition(0);
+                servopinch.setPosition(.3);
             }
 
             if  (dRight) {
-                servopinch.setPosition(1);
+                servopinch.setPosition(.63);
             }
         }
-        public void grabberlift(boolean dUp, boolean dDown) {
+        public void grabberlift(boolean dUp, boolean dDown, boolean hold) {
     // these servograbrot.getposition <= stuff is trying to stop it from hitting the robot but idk why its not working
-            if (dUp && (servograbrot.getPosition() <= 0.6)) {
-                servograbrot.getPosition();
-                servograbrot.setPosition(servograbrot.getPosition() + 0.1);
+            if (dUp) {
+                servograbrot.setPosition(.53);
             }
-
-            if (dDown && ((servograbrot.getPosition() >= 0.0))) {
-                servograbrot.getPosition();
-                servograbrot.setPosition(servograbrot.getPosition() - 0.1);
+            else if (dDown) {
+                servograbrot.setPosition(.32);
             }
-
-            else {
-                servograbrot.setPosition(servograbrot.getPosition());
+            else if (hold) {
+                servograbrot.setPosition(.43);
             }
-
         }
-
-    public void telem() {
-        telemetry.addData("Servo grabber", servograbrot.getPosition());
-        telemetry.addData("Servo pincher", servopinch.getPosition());
-    }
     }
