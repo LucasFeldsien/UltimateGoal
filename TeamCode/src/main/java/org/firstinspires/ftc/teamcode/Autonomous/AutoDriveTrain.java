@@ -55,7 +55,7 @@ class AutoDriveTrain {
         return ticks;
     }
     //basic movement
-    public void autoDriveStraight(double dist, double power) {
+    public void autoDriveStraight(double dist) {
        int ticks = converstion(dist);
         drivefr.setTargetPosition(ticks+drivefr.getCurrentPosition());
         drivefl.setTargetPosition(ticks+drivefl.getCurrentPosition());
