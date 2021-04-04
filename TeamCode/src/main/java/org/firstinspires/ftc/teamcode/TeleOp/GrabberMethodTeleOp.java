@@ -24,12 +24,12 @@ public class GrabberMethodTeleOp {
                 servopinch.setPosition(.63);
             }
         }
-        public void grabberlift(boolean dUp, boolean dDown, boolean hold) {
+        public void grabberlift(boolean dup, boolean ddown, boolean hold) {
     // these servograbrot.getposition <= stuff is trying to stop it from hitting the robot but idk why its not working
-            if (dUp) {
+            if (ddown) {
                 servograbrot.setPosition(.53);
             }
-            else if (dDown) {
+            else if (dup) {
                 servograbrot.setPosition(.32);
             }
             else if (hold) {

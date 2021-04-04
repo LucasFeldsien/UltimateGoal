@@ -6,16 +6,25 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
-class AutoLauncher extends HardwareNames {
-    public void launcherMotors(HardwareMap hwm) {
-        super.launcherMotors(hwm);
+class AutoLauncher {
+    public DcMotor motorlaunch;
+    public DcMotor motorlift;
+    public DcMotor motorfeed;
+
+    public AutoLauncher(HardwareMap hwm) {
+        motorlaunch = hwm.get(DcMotor.class, "motorlaunch");
+        motorlift = hwm.get(DcMotor.class, "motorlift");
+        motorfeed = hwm.get(DcMotor.class, "motorfeed");
+
+        motorlaunch.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        motorlift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motorfeed.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        motorfeed.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorfeed.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
-    public void shoot(double vis) {
-        servolift.setPosition(vis);
-        motorlaunch.setPower(1.0);
-        servofeed.setPosition(1.0);//continous
-        servolift.setPosition(1.0);
-        //need a wait statement
-        servolift.setPosition(0.0);
+
+    public void eject() {
+        //PAIN
     }
 }

@@ -19,11 +19,14 @@ public class LauncherTeleOp extends OpMode {
     @Override
     public void loop() {
         launcher.ejectAngle(gamepad2.left_trigger, gamepad2.right_trigger);
-        launcher.feed(gamepad2.b);
-        if (gamepad2.right_bumper) {
-            launcher.Eject(gamepad2.x);
+        launcher.eject(gamepad2.b);
+        if(gamepad2.a) {
+            launcher.feed();
         }
 
+        if(gamepad2.left_stick_x >= .5 || gamepad2.left_stick_y >= .5) {
+            launcher.feedFullAuto();
+        }
     }
 }
 
