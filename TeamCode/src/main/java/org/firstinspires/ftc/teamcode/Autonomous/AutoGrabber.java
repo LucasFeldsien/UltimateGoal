@@ -7,13 +7,31 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
 class AutoGrabber extends HardwareNames {
-    public void grabberMotors(HardwareMap hwm) {
-        super.grabberMotors(hwm);
-    }
-    public void grab(int open) {
-        servopinch.setPosition(1);
-  //      if (we sense that that we get 3 rings then or if the color is i think red?? or whatever that tells us its 3 rights  )
-        servopinch.setPosition(0);
+    public Servo servopinch;
+    public Servo servograbrot;
 
+    public AutoGrabber(HardwareMap hwm) {
+        servopinch = hwm.get(Servo.class, "servopinch");
+        servograbrot = hwm.get(Servo.class, "servograbrot");
+    }
+
+    public void lifterDown() {
+        servograbrot.setPosition(.32);
+    }
+
+    public void lifterUp() {
+        servograbrot.setPosition(.53);
+    }
+
+    public void lifterCarry() {
+        servograbrot.setPosition(.43);
+    }
+
+    public void grabberOpen() {
+        servopinch.setPosition(.3);
+    }
+
+    public void grabberClose() {
+        servopinch.setPosition(.63);
     }
 }
