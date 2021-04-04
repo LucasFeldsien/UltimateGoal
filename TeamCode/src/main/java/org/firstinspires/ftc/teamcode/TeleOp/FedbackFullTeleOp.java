@@ -2,12 +2,14 @@ package org.firstinspires.ftc.teamcode.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp(name="brrrrr", group="TeleOp")
 //@Disabled
 public class FedbackFullTeleOp extends OpMode {
     // this code will provide info on every motor and servo
     double power = 1;
+    double feetmaxpower = 1;
 
     DriveTrainMethodTeleOp drivetrain;
     GrabberMethodTeleOp grabber;
@@ -47,16 +49,23 @@ public class FedbackFullTeleOp extends OpMode {
     }
 
     public void telemetLaunch() {
-        launcher.ejectAngle(gamepad2.left_trigger, gamepad2.right_trigger);
-        launcher.feed(gamepad2.y);
-
-        if (gamepad2.x) {
-            launcher.Eject(gamepad2.x);
+        launcher.ejectAngle(gamepad2.right_stick_y);
+        launcher.setMaxPower(gamepad2.dpad_up, gamepad2.dpad_down);
+        launcher.eject(gamepad2.b);
+        if(gamepad2.a) {
+            launcher.feed();
+        }
+        launcher.motorfeed.setPower(gamepad2.left_stick_x*feetmaxpower);
+        if(gamepad2.dpad_left) {
+            feetmaxpower = .3;
+        }
+        else {
+            feetmaxpower = 1;
         }
 
         telemetry.addData("feed ", launcher.motorfeed.getCurrentPosition());
-        telemetry.addData("lift ", launcher.motorlift.getCurrentPosition());
-        telemetry.addData("launcher ", launcher.motorlaunch.getPower());
+        //telemetry.addData("lift ", launcher.motorlift.getCurrentPosition());
+        //telemetry.addData("launcher ", launcher.motorlaunch.getPower());
         telemetry.update();
     }
 
