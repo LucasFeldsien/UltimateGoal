@@ -7,6 +7,7 @@ import org.firstinspires.ftc.teamcode.HardwareNames;
 
 public class LauncherMethodTeleOp  {
     private int whatdoidolucas = 0;
+    private double powersetting = 1;
     private int test = 0;
 
     public DcMotor motorlaunch;
@@ -53,17 +54,21 @@ public class LauncherMethodTeleOp  {
         }
     }
 
-    public void ejectAngle (float lefttrigger, float righttrigger) {
-        motorlift.setPower(lefttrigger*.5 - righttrigger*.5);
+    public void setMaxPower(boolean up, boolean down) {
+        if(up == true) {
+            powersetting = 1;
+        }
+        if(down == true) {
+            powersetting = .5;
+        }
+    }
+    public void ejectAngle (float lefttrigger) {
+        motorlift.setPower(lefttrigger*powersetting);
     }
 
     public void feed() {
         newtarget = motorfeed.getCurrentPosition()+100;
         motorfeed.setTargetPosition(newtarget);
         motorfeed.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-    }
-
-    public void feedFullAuto() {
-        motorfeed.setPower(1);
     }
 }

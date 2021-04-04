@@ -21,7 +21,7 @@ public class GrabberMethodTeleOp {
             }
 
             if  (dRight) {
-                servopinch.setPosition(.63);
+                servopinch.setPosition(.46);
             }
         }
         public void grabberlift(boolean dup, boolean ddown, boolean hold) {

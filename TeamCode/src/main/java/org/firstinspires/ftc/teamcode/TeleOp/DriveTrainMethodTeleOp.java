@@ -67,19 +67,19 @@ public class DriveTrainMethodTeleOp {
 
     public double motorPower (double power, boolean buttonA, boolean buttonB, boolean buttonX, boolean buttonY) {
         if (buttonA) {
-            power = .25;
+            power = 1;
         }
 
         else if (buttonX) {
-            power = .50;
+            power = 0.75;
         }
 
         else if (buttonY) {
-            power = .75;
+            power = 0.50;
         }
 
         else if (buttonB) {
-            power = 1;
+            power = 0.25;
         }
         return power;
     }

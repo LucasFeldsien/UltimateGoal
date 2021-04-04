@@ -19,12 +19,12 @@ class IntakeMethodTeleOp  {
 
     public void intake (/*boolean full*/ boolean leftbumper, boolean rightbumper) {
         if (leftbumper == true /*&& full == false*/) {
-            motorintake.setPower(1);
+            motorintake.setPower(.5);
 
         }
 
         else if (rightbumper == true) {
-            motorintake.setPower(-1);
+            motorintake.setPower(-.5);
 
         }
         else {

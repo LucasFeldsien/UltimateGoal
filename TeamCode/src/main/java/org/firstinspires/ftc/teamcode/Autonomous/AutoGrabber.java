@@ -33,6 +33,6 @@ class AutoGrabber {
     }
 
     public void grabberClose() {
-        servopinch.setPosition(.63);
+        servopinch.setPosition(.46);
     }
 }
