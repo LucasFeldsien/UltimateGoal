@@ -24,7 +24,11 @@ class AutoLauncher {
         motorfeed.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
-    public void eject() {
+    public void eject(int ringnum) {
         //PAIN
+    }
+
+    public void drawbridge(double drawbridgelift) {
+
     }
 }

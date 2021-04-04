@@ -57,7 +57,7 @@ public class FedbackFullTeleOp extends OpMode {
         }
         launcher.motorfeed.setPower(gamepad2.left_stick_x*feetmaxpower);
         if(gamepad2.dpad_left) {
-            feetmaxpower = .3;
+            feetmaxpower = .2;
         }
         else {
             feetmaxpower = 1;

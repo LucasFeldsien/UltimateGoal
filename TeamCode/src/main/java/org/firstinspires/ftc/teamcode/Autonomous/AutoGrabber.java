@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.HardwareNames;
 
 class AutoGrabber {
-
     public Servo servopinch;
     public Servo servograbrot;
 
